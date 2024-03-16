@@ -2,7 +2,7 @@
 
 namespace autohero
 {
-    public abstract class GunBase : IShootable,IReloadable
+    public abstract class GunBase : MonoBehaviour, IShootable,IReloadable
     {
        public BulletBase bullet;
         public GunBase (BulletBase bullet)

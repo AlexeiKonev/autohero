@@ -1,10 +1,15 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;// Required when using Event data.
+using System.Collections.Generic;
 
 namespace autohero
 {
     public class GameHeroManager : MonoBehaviour
     {
+        [SerializeField] private Dropdown bulletDropdown;
+
         //Singletone Instance
         public static GameHeroManager Instance;
 
@@ -12,20 +17,41 @@ namespace autohero
 
         [SerializeField]  private  Transform playerGunPos;
 
-        [SerializeField] BulletBase playerBullet;
+        [SerializeField] BulletBase playerBullet1;
+        [SerializeField] BulletBase playerBullet2;
+        [SerializeField] List<BulletBase> playerBulletList;
 
-        public   event Action  act ;
-         
+       
         private void Awake()
         {
             Debug.Log("awake");
             Initialise();
-            playerBullet = new BulletSimple();
-            playerGun = new SingleShootGun(playerBullet);
+            //playerBullet = new BulletSimple();
+            playerBulletList.Add(playerBullet1);
+            playerBulletList.Add(playerBullet2);
 
-             
+            playerGun = new SingleShootGun(playerBulletList[bulletDropdown.value]);
         }
 
+        public void SelectBullet()
+        {
+            
+
+            if (bulletDropdown.value == 0)
+            {
+                playerGun = new SingleShootGun(playerBulletList[bulletDropdown.value]);
+                Debug.Log($"{playerBulletList[bulletDropdown.value].gameObject.name} choosed");
+            }
+            if (bulletDropdown.value == 1)
+            {
+                playerGun = new SingleShootGun(playerBulletList[bulletDropdown.value]);
+                Debug.Log($"{playerBulletList[bulletDropdown.value].gameObject.name} choosed");
+            }
+        }
+        private void Update()
+        {
+            
+        }
         //метод под кнопку
         public void Shoot()
         {
@@ -50,7 +76,9 @@ namespace autohero
 
 
         }
+     
 
     }
 
 }
+

@@ -6,13 +6,14 @@ namespace autohero
     {
         public SingleShootGun(BulletBase bullet) : base(bullet)
         {
-            bullet = new BulletSimple();
+            this.bullet = bullet;
         }
 
         public override void Shoot(Transform gunPosition)
         {
-            
-            Debug.Log("Single shoot");
+            Instantiate(bullet, gunPosition.position, bullet.transform.rotation);
+
+            Debug.Log($"{bullet.gameObject.name} Single shoot");
         }
     }
 
