@@ -2696,6 +2696,7 @@ MonoBehaviour:
     type: 3}
   playerBullet2: {fileID: 8404195649313671216, guid: 0d7e7350ddc1aad4a98c578737798941,
     type: 3}
+  playerBulletList: []
 --- !u!4 &1841636452
 Transform:
   m_ObjectHideFlags: 0

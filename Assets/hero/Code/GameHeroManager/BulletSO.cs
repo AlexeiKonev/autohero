@@ -7,6 +7,7 @@ namespace autohero
     [CreateAssetMenu]
     public class BulletSO : ScriptableObject
     {
+        public AudioClip audioClip;
         public int damage;
     }
 }

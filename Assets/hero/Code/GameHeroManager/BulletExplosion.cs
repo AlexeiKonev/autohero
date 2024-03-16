@@ -8,7 +8,9 @@ namespace autohero
         //{
         //    damage = bulletSO.damage;
         //}
-        public override void Move() { Debug.Log(" BulletExplosion Move"); }
+
+
+        //public override void Move() { Debug.Log(" BulletExplosion Move"); }
     }
 
 }
